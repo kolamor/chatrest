@@ -118,12 +118,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE = 1
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_DIR = os.path.join(BASE_DIR, 'static/')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_DIR = os.path.join(BASE_DIR, 'media/')
@@ -159,6 +161,6 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 
 try:
-    from .locals_setting import *
+    from .local_settings import *
 except ImportError:
     from .prod_settings import *
