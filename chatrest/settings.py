@@ -143,7 +143,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         ),
-    'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptyions.exception_handler',
+    'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
+
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework_json_api.pagination.PageNumberPagination',
     'DEFAULT_PARSER_CLASSES': (
