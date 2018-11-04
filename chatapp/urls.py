@@ -6,5 +6,5 @@ urlpatterns = [
    
 	path('room/', RoomApi.as_view()),
 	path('dialog/', Dialog.as_view()),
-	
+	path('users/', AddUsersRoom.as_view()),
 ]
