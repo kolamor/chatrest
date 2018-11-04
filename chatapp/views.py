@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions
 from chatapp.models import Room, Chat
-from chatapp.serializers import RoomSerializers, ChatSerializers
+from chatapp.serializers import (RoomSerializers, ChatSerializers, ChatPostSerializers)
 
 
 # Create your views here.
@@ -16,8 +16,8 @@ class RoomApi(APIView):
 
 class Dialog(APIView):
 	"""дивлог чата"""
-	# permission_classes = [permissions.IsAuthenticated, ]
-	permission_classes = [permissions.AllowAny, ]
+	permission_classes = [permissions.IsAuthenticated, ]
+	# permission_classes = [permissions.AllowAny, ]
 
 	def get(self, request):
 		room = request.GET.get('room')
@@ -28,7 +28,7 @@ class Dialog(APIView):
 
 	def post(self, request):
 		#room = request.data.get('room')
-		dialog = ChatSerializers(data=request.data)
+		dialog = ChatPostSerializers(data=request.data)
 		if dialog.is_valid():
 			dialog.save(user=request.user)
 			return Response({'status': 'Add'})
